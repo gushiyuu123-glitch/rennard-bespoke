@@ -1,8 +1,64 @@
+:root {
+  /* ---------------------------------
+     RENNARD BESPOKE / Global Colors
+  --------------------------------- */
+
+  --color-bg: #0b0c0d;
+  --color-bg-soft: #111214;
+
+  --color-text: #e7dfd5;
+  --color-text-warm: #cdb79f;
+  --color-text-muted: #9d9993;
+
+  --color-accent: #a47d52;
+
+  --color-line: rgba(231, 223, 213, 0.14);
+  --color-line-soft: rgba(231, 223, 213, 0.08);
+
+  /* ---------------------------------
+     Typography
+  --------------------------------- */
+
+  --font-serif:
+    "Yu Mincho",
+    "YuMincho",
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    "Noto Serif JP",
+    "Times New Roman",
+    serif;
+
+  --font-sans:
+    "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "YuGothic",
+    sans-serif;
+
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ---------------------------------
+   Reset
+--------------------------------- */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 
 html,
 body,
@@ -12,9 +68,18 @@ body,
   min-height: 100%;
 }
 
+
+html {
+  background: var(--color-bg);
+}
+
+
 body {
   min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
+
 
 img,
 picture,
@@ -24,6 +89,7 @@ canvas {
   max-width: 100%;
 }
 
+
 button,
 input,
 textarea,
@@ -31,11 +97,41 @@ select {
   font: inherit;
 }
 
+
+button {
+  border: 0;
+}
+
+
 a {
   color: inherit;
   text-decoration: none;
 }
-html, body { overflow-x: clip; }
-@supports not (overflow: clip){
-  html, body { overflow-x: hidden; }
+
+
+/* ---------------------------------
+   Overflow
+--------------------------------- */
+
+html,
+body {
+  overflow-x: clip;
+}
+
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* ---------------------------------
+   Selection
+--------------------------------- */
+
+::selection {
+  color: var(--color-bg);
+  background: var(--color-text-warm);
 }

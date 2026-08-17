@@ -1,2 +1,244 @@
 .hero {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 720px;
+
+  overflow: hidden;
+
+  background: var(--color-bg);
+}
+
+
+/* ---------------------------------
+   Visual
+--------------------------------- */
+
+.visual {
+  position: absolute;
+  inset: -24px 0;
+  z-index: 0;
+
+  width: 100%;
+  height: calc(100% + 48px);
+
+  overflow: hidden;
+}
+
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  transform: scale(1.035);
+  transform-origin: center center;
+
+  will-change: transform, opacity;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* ---------------------------------
+   Main Copy
+--------------------------------- */
+
+.content {
+  position: absolute;
+  z-index: 2;
+
+  left: clamp(84px, 8.2vw, 146px);
+  top: 39.2%;
+
+  transform: translateY(-50%);
+}
+
+
+.title {
+  margin: 0;
+
+  font-family: var(--font-serif);
+  font-size: clamp(50px, 4.65vw, 76px);
+  font-weight: 500;
+  line-height: 1.32;
+
+  letter-spacing: 0.015em;
+
+  color: var(--color-text-warm);
+}
+
+
+/*
+ * 1行ごとのアニメーション対象
+ */
+.lineText {
+  display: block;
+
+  will-change: transform, opacity;
+}
+
+
+/*
+ * Japanese period
+ */
+.period {
+  display: inline-block;
+
+  margin-left: 0.025em;
+
+  font-size: 0.72em;
+  line-height: 1;
+
+  transform: translateY(-0.02em);
+}
+
+
+/* ---------------------------------
+   Divider
+--------------------------------- */
+
+.divider {
+  width: clamp(120px, 10vw, 168px);
+  height: 1px;
+
+  margin-top: clamp(24px, 2.1vw, 34px);
+
+  background: var(--color-accent);
+
+  transform-origin: left center;
+
+  will-change: transform, opacity;
+}
+
+
+/* ---------------------------------
+   English Copy
+--------------------------------- */
+
+.tagline {
+  margin: clamp(14px, 1.2vw, 20px) 0 0;
+
+  font-family: var(--font-serif);
+  font-size: clamp(14px, 1.05vw, 17px);
+  font-weight: 400;
+  line-height: 1.5;
+
+  letter-spacing: 0.04em;
+
+  color: var(--color-text-muted);
+
+  will-change: transform, opacity;
+}
+
+
+/* ---------------------------------
+   Brand
+--------------------------------- */
+
+.brand {
+  position: absolute;
+  z-index: 2;
+
+  left: clamp(84px, 8.2vw, 146px);
+  bottom: clamp(46px, 5.5vh, 72px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  will-change: opacity;
+}
+
+
+.brandName {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 1.55vw, 25px);
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: 0.16em;
+
+  color: var(--color-text);
+}
+
+
+.brandSub {
+  margin-top: 8px;
+
+  font-family: var(--font-serif);
+  font-size: clamp(9px, 0.65vw, 11px);
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: 0.28em;
+
+  color: var(--color-accent);
+}
+
+
+/* ---------------------------------
+   Wide PC
+--------------------------------- */
+
+@media (min-width: 1800px) {
+  .content,
+  .brand {
+    left: clamp(120px, 8.2vw, 172px);
+  }
+
+  .content {
+    top: 39%;
+  }
+
+  .title {
+    font-size: clamp(64px, 4.25vw, 82px);
+  }
+}
+
+
+/* ---------------------------------
+   Small PC / Laptop
+--------------------------------- */
+
+@media (max-width: 1180px) {
+  .hero {
+    min-height: 680px;
+  }
+
+  .content,
+  .brand {
+    left: clamp(48px, 6vw, 72px);
+  }
+
+  .content {
+    top: 40.5%;
+  }
+
+  .title {
+    font-size: clamp(42px, 4.7vw, 54px);
+  }
+
+  .divider {
+    margin-top: 24px;
+  }
+}
+
+
+/* ---------------------------------
+   Reduced Motion
+--------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .lineText,
+  .divider,
+  .tagline,
+  .brand {
+    will-change: auto;
+  }
 }
